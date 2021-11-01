@@ -4,28 +4,15 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 )
 
 func main() {
-	fmt.Println("Hello, World")
-	fmt.Println("Would you prefer to use scan (s) or use bufio (b)?")
-	var userOption string
-	fmt.Scan(&userOption)
-	userOptionLower := strings.ToLower(userOption)
-	if userOptionLower != "s" && userOptionLower != "b" {
-		fmt.Print("Invalid option.")
-	} else {
-		fmt.Println("What would you like me to parrot back to you?")
-		if userOptionLower == "s" {
-			var inputStr string
-			fmt.Scanln(&inputStr)
-			fmt.Println(inputStr)
-		} else {
-			reader := bufio.NewReader(os.Stdin)
-			inputLn, _ := reader.ReadString('\n')
-			fmt.Print(inputLn)
-		}
-	}
-
+    /*
+    To complete this challenge, you must save a line of input from stdin to a
+    variable, print Hello, World. on a single line, and finally print the value
+    of your variable on a second line.
+    */
+    reader := bufio.NewReader(os.Stdin)
+    message, _ := reader.ReadString('\n')
+    fmt.Printf("Hello, World.\n%s", message)
 }

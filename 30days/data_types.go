@@ -9,35 +9,34 @@ import (
 
 func main() {
   	var _ = strconv.Itoa // Ignore this comment. You can still use the package "strconv".
-  
+      
+    /*
+    Complete the code in the editor below. The variables i, d, & s are already
+    declared and initialized for you. You must: Declare 3 variables: one of type
+    int, one of type double, and one of type String. Read 3 lines of input from
+    stdin (according to the sequence given in the Input Format section below)
+    and initialize your  variables.  Use the  operator to perform the following
+    operations: Print the sum of i plus your int variable on a new line. Print
+    the sum of d plus your double variable to a scale of one decimal place on a
+    new line.  Concatenate d with the string you read as input and print the
+    result on a new line.
+    */
+
     var i uint64 = 4
     var d float64 = 4.0
     var s string = "HackerRank "
 
     scanner := bufio.NewScanner(os.Stdin)
-    // Declare second integer, double, and String variables.
-    
-    // Read and save an integer, double, and String to your variables.
-    
-    // Print the sum of both integer variables on a new line.
-    
-    // Print the sum of the double variables on a new line.
-    
-    // Concatenate and print the String variables on a new line
-    // The 's' variable above should be printed first.
-
-    var intVar uint64
-    var doubleVar float64
-    var stringVar string
+    var i2 uint64
+    var d2 float64
+    var s2 string
      
+    fmt.Scan(&i2)
+    fmt.Scan(&d2)
     scanner.Scan()
-    intVar, _ = strconv.ParseUint(scanner.Text(), 10, 64)
-    scanner.Scan()
-    doubleVar, _ = strconv.ParseFloat(scanner.Text(), 64)
-    scanner.Scan()
-    stringVar = scanner.Text()
+    s2 = scanner.Text()
     
-    fmt.Println(i + intVar)
-    fmt.Println(fmt.Sprintf("%.1f", d + doubleVar))
-    fmt.Println(s + stringVar) 
+    fmt.Println(i + i2)
+    fmt.Printf("%.1f\n", d + d2)
+    fmt.Printf("%s%s", s, s2)
 }

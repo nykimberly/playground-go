@@ -9,15 +9,12 @@ import (
     "strconv"
     "strings"
 )
-
 /*
- * Complete the 'solve' function below.
- *
- * The function accepts following parameters:
- *  1. DOUBLE meal_cost
- *  2. INTEGER tip_percent
- *  3. INTEGER tax_percent
- */
+    Given the meal price (base cost of a meal), tip percent (the percentage of
+    the meal price being added as tip), and tax percent (the percentage of the
+    meal price being added as tax) for a meal, find and print the meal's total
+    cost. Round the result to the nearest integer.
+*/
 
 func solve(meal_cost float64, tip_percent int32, tax_percent int32) float64 {
     var tip_part float64 = float64(tip_percent) / 100.0
@@ -39,8 +36,8 @@ func main() {
     checkError(err)
     tax_percent := int32(tax_percentTemp)
 
-    result := solve(meal_cost, tip_percent, tax_percent)
-    fmt.Println(result)
+    totalCost := solve(meal_cost, tip_percent, tax_percent)
+    fmt.Println(totalCost)
 }
 
 func readLine(reader *bufio.Reader) string {

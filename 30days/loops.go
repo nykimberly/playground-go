@@ -1,0 +1,45 @@
+package main
+
+import (
+    "bufio"
+    "fmt"
+    "io"
+    "os"
+    "strconv"
+    "strings"
+)
+
+/*
+In this challenge, we will use loops to do some math.
+
+Task: Given an integer, n, print its first 10 multiples. Each multiple nxi (where 1 <= i
+<= 10) should be printed on a new line in the form n x i = result
+*/
+
+func main() {
+    reader := bufio.NewReaderSize(os.Stdin, 16 * 1024 * 1024)
+
+    nTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
+    checkError(err)
+    n := int32(nTemp)
+
+	for i := int32(1); i <= 10; i++ {
+		fmt.Printf("%d x %d = %d\n", n, i, n * i)
+	}
+
+}
+
+func readLine(reader *bufio.Reader) string {
+    str, _, err := reader.ReadLine()
+    if err == io.EOF {
+        return ""
+    }
+
+    return strings.TrimRight(string(str), "\r\n")
+}
+
+func checkError(err error) {
+    if err != nil {
+        panic(err)
+    }
+}
